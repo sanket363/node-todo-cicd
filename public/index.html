@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      form {
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      .edit-link {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>ToDo List</h1>
+
+    <!-- Form to add new todo items -->
+    <form action="/todo/add" method="post">
+      <label for="newtodo">New ToDo:</label>
+      <input type="text" id="newtodo" name="newtodo" />
+      <button type="submit">Add</button>
+    </form>
+
+    <!-- List of current todo items -->
+    <ul>
+      <% todolist.forEach(function(todo, index) { %>
+      <li>
+        <%= todo %>
+        <a
+          href="/todo/delete/<%= index %>"
+          onclick="return confirm('Are you sure you want to delete this item?')"
+          >Delete</a
+        >
+        <a href="/todo/<%= index %>" class="edit-link">Edit</a>
+      </li>
+      <% }); %>
+    </ul>
+
+    <script>
+      // JavaScript functions can be defined here if needed
+      function func1() {
+        // Function logic here
+      }
+    </script>
+  </body>
+</html>
