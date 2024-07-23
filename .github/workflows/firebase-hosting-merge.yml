@@ -12,7 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm install
-      - run: npm run build
+      # - run: npm audit fix || true
+      # - run: npm audit fix --force || true
+      # Uncomment the next line if you have a build step
+      # - run: npm run build 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
